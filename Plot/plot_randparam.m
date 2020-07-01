@@ -1,6 +1,10 @@
 % Plots collected tau/theta/I as hx+hy=0
-fulltab = readtable('../Data/randparams0_1-nc_3000-schlogl-collected.csv', 'delimiter',',');
-ttl = 'Schlogl';
+% fulltab = readtable('../Data/randparams0_1-nc_3000-schlogl-collected.csv', 'delimiter',',');
+% ttl = 'Schlogl';
+% outfile = 'ShannonI_rand_collective.png';
+fulltab = readtable('../Data/randparams0_1-nc_3000-hill-collected.csv', 'delimiter',',');
+ttl = 'Hill';
+outfile = 'ShannonI_rand_collective_Hill.png';
 
 hxs = unique(fulltab.h_x);
 hys = unique(fulltab.h_y);
@@ -74,6 +78,7 @@ end
 % c.TickLabels = [min(fulltab.I), (min(fulltab.I)+max(fulltab.I))/2, max(fulltab.I)];
 set(gca,'FontSize',18);
 t = text(0.127, 0.107, '$I$', 'Interpreter', 'Latex', 'FontSize', 18);
-print(gcf,'-dpng','ShannonI_rand_collective.png','-r600');
+t1 = text(-0.177, 0.107, '(c)', 'Interpreter', 'Latex', 'FontSize', 22);
+print(gcf,'-dpng',outfile,'-r600');
 
 

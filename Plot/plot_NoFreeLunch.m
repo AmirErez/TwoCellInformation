@@ -1,5 +1,13 @@
-fulltab = readtable('../Data/randparams0_1-nc_3000-schlogl-collected.csv', 'delimiter',',');
-ttl = 'Schlogl';
+% fulltab = readtable('../Data/randparams0_1-nc_3000-schlogl-collected.csv', 'delimiter',',');
+% ttl = 'Schlogl';
+% outfileT = 'FreeLunchColT.png';
+% outfileH = 'FreeLunchColH.png';
+
+fulltab = readtable('../Data/randparams0_1-nc_3000-hill-collected.csv', 'delimiter',',');
+ttl = 'Hill';
+outfileT = 'FreeLunchColT_Hill.png';
+outfileH = 'FreeLunchColH_Hill.png';
+
 warning('Hack! g hardcoded to 1');
 
 fulltab.g = ones(height(fulltab),1);
@@ -56,7 +64,8 @@ for ii=1:height(fulltab)
     cind = floor(fulltab.renormTheta(ii)*(ncolors-1))+1;
     cols(ii,:) = cmap(cind,:);
 end
-print(gcf, '-dpng', 'FreeLunchColH.png', '-r600');
+t1 = text(10^(-0.64), 1.53, '(d)', 'Interpreter', 'Latex', 'FontSize', 22);
+print(gcf, '-dpng', outfileH, '-r600');
 
 %
 newfigure(4.5,3.75);
@@ -75,5 +84,5 @@ c.Ticks = [0, 0.5, 1];
 c.TickLabels = {num2str(round(min(fulltab.Theta)*10)/10), '0', num2str(round(max(fulltab.Theta)*10)/10)};
 yl = ylabel(c,'$T$', 'Interpreter', 'Latex');
 yl.Position = [2.2, 0.5, 0];
-print(gcf, '-dpng', 'FreeLunchColT.png', '-r600');
+print(gcf, '-dpng', outfileT, '-r600');
 
