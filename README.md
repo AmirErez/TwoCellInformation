@@ -1,6 +1,8 @@
 # TwoCellInformation
 Code and data for the journal article "Cell-to-cell information at a feedback-induced bifurcation point"
+
 Phys. Rev. Lett. 125, 048103 – Published 22 July 2020
+
 https://journals.aps.org/prl/abstract/10.1103/PhysRevLett.125.048103
 
 
